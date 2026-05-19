@@ -208,3 +208,18 @@ git push -u origin main
 ## 免责声明
 
 本项目使用模拟数据，仅用于学习、展示和作品集，不构成真实金融机构授信或投资决策建议。
+
+## 在线演示地址
+
+本项目已部署为 Streamlit 在线网页应用，可直接通过浏览器访问和体验系统功能：
+
+🔗 **在线访问链接：** https://ai-financial-risk-prediction.streamlit.app
+
+在线系统主要包含以下功能：
+
+- 项目介绍：展示 AI 金融风险预测系统的背景、技术路线和业务价值；
+- 数据分析：展示模拟信贷数据的基本情况、违约分布和变量特征；
+- 风险预测：输入客户年龄、收入、贷款金额、信用评分、债务收入比等信息，系统自动输出违约概率和风险等级；
+- 模型解释：展示模型特征重要性，说明影响金融风险预测结果的关键因素。
+
+该网页应用可用于展示 Machine Learning、Credit Risk Prediction、Financial Risk Management 和 Streamlit Dashboard 的完整项目流程。
