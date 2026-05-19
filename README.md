@@ -223,3 +223,6 @@ git push -u origin main
 - 模型解释：展示模型特征重要性，说明影响金融风险预测结果的关键因素。
 
 该网页应用可用于展示 Machine Learning、Credit Risk Prediction、Financial Risk Management 和 Streamlit Dashboard 的完整项目流程。
+
+
+> 说明：由于 Streamlit Cloud 部署在海外服务器，部分网络环境下访问可能较慢。如在线演示无法打开，可克隆本项目后在本地运行 `streamlit run app.py` 查看完整功能。
