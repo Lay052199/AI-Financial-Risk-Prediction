@@ -1,0 +1,10 @@
+Best Model: Logistic Regression
+
+              precision    recall  f1-score   support
+
+           0     0.8397    0.8884    0.8633       672
+           1     0.7405    0.6524    0.6937       328
+
+    accuracy                         0.8110      1000
+   macro avg     0.7901    0.7704    0.7785      1000
+weighted avg     0.8071    0.8110    0.8077      1000
