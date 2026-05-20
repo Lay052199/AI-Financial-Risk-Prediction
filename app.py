@@ -182,13 +182,16 @@ def build_input_form() -> pd.DataFrame:
     )
 
 
-def show_prediction_page() -> None:
-    st.header("Risk Prediction")
-   model = load_prediction_model()
+def show_prediction_page():
+    st.title("Risk Prediction")
 
-if model is None:
-    st.warning("当前模型未成功加载，暂时无法进行风险预测。请检查 models/best_model.pkl 文件和部署环境。")
-    return
+    model = load_prediction_model()
+
+    if model is None:
+        st.warning("当前模型未成功加载，暂时无法进行风险预测。请检查 models/best_model.pkl 文件和部署环境。")
+        return
+
+    st.markdown("### Please enter the financial indicators below:")
 
     input_df = build_input_form()
     st.subheader("Applicant Snapshot")
