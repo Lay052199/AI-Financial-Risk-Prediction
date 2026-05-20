@@ -134,11 +134,14 @@ def show_dataset_page() -> None:
             cols[index % 2].image(str(figure_path), caption=filename.replace(".png", "").replace("_", " ").title())
 
 
+from pathlib import Path
+
+MODEL_PATH = Path(__file__).parent / "models" / "best_model.pkl"
+
 def load_prediction_model():
     if not MODEL_PATH.exists():
         return None
-    return best_model(MODEL_PATH)
-
+    return load_model(MODEL_PATH)
 
 def build_input_form() -> pd.DataFrame:
     st.sidebar.header("Customer Input")
