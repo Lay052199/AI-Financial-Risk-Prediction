@@ -136,12 +136,20 @@ def show_dataset_page() -> None:
 
 from pathlib import Path
 
-MODEL_PATH = Path(__file__).parent / "models" / "best_model.pkl"
-
+@st.cache_resource
 def load_prediction_model():
+    """加载金融风险预测模型。"""
     if not MODEL_PATH.exists():
+        st.error(f"模型文件不存在：{MODEL_PATH}")
         return None
-    return load_model(MODEL_PATH)
+
+    try:
+        model = load_model(MODEL_PATH)
+        return model
+    except Exception as e:
+        st.error("模型加载失败，请检查 best_model.pkl 是否与当前 Python / scikit-learn 版本兼容。")
+        st.exception(e)
+        return None
 
 def build_input_form() -> pd.DataFrame:
     st.sidebar.header("Customer Input")
@@ -176,10 +184,11 @@ def build_input_form() -> pd.DataFrame:
 
 def show_prediction_page() -> None:
     st.header("Risk Prediction")
-    model = load_prediction_model()
-    if model is None:
-        st.warning("Best model not found. Run `python src/train_model.py` first.")
-        return
+   model = load_prediction_model()
+
+if model is None:
+    st.warning("当前模型未成功加载，暂时无法进行风险预测。请检查 models/best_model.pkl 文件和部署环境。")
+    return
 
     input_df = build_input_form()
     st.subheader("Applicant Snapshot")
